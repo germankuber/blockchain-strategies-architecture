@@ -1,5 +1,5 @@
 pragma solidity ^0.8.0;
-
+import "hardhat/console.sol";
 import "../StrategyBase.sol";
 
 contract UniSwapStrategy is StrategyBase {
@@ -9,13 +9,13 @@ contract UniSwapStrategy is StrategyBase {
 
     constructor() StrategyBase(addreses) {}
 
-    function executeAction(address tokenToUse, uint256 amountToUse)
-        public
-        override
-        returns (address token, uint256 amount)
-    {
+    function executeAction(
+        string calldata strategyName,
+        address tokenToUse,
+        uint256 amountToUse
+    ) public override returns (address token, uint256 amount) {
         emit Log("UniSwapStrategy");
-
+        console.log("UniSwapStrategy");
         return (cBat, 999);
     }
 }
